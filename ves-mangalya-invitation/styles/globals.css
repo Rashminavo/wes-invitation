@@ -64,6 +64,29 @@ img {
   padding: 48px 0 80px;
 }
 
+.scroll-section {
+  scroll-margin-top: 86px;
+  padding: 42px 0 64px;
+  border-bottom: 1px solid rgba(201, 161, 89, 0.35);
+}
+
+.scroll-section:first-child {
+  padding-top: 0;
+}
+
+.scroll-section:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.hero-section {
+  text-align: center;
+}
+
+.hero-title {
+  margin-bottom: 30px;
+}
+
 .eyebrow {
   display: block;
   text-align: center;
@@ -231,6 +254,10 @@ img {
   flex-wrap: wrap;
   margin-top: 10px;
 }
+.cta-row.left {
+  justify-content: flex-start;
+  margin-top: 20px;
+}
 
 /* ---------- Countdown ---------- */
 .cd-grid {
@@ -334,6 +361,20 @@ img {
 .g-grid .placeholder-photo {
   aspect-ratio: 1 / 1;
   cursor: pointer;
+}
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 6, 7, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 30px;
+}
+.lightbox-photo {
+  width: min(90vw, 480px);
+  height: min(70vh, 480px);
 }
 
 /* ---------- Video ---------- */
