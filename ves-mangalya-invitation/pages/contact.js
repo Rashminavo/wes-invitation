@@ -3,9 +3,7 @@ import Divider from '../components/Divider';
 
 // 👉 Update names, roles and numbers here.
 const CONTACTS = [
-  { name: '[නම 1]', role: 'ආයතනයේ අධ්‍යක්ෂක', phone: '077 000 0000' },
-  { name: '[නම 2]', role: 'නර්තන ගුරුවරයා', phone: '071 000 0000' },
-  { name: '[නම 3]', role: 'සම්බන්ධීකාරක', phone: '075 000 0000' },
+  { name: '[චන්ද්‍රිකා ගුරුතුමිය]', role: 'නර්තන ගුරුවරයා', phone: '071 103 5781' } 
 ];
 
 function digitsOnly(str) {

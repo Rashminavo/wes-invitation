@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import Divider from './Divider';
 
 const EVENT_DATE = '2026-08-01T07:00:00+05:30';
 const STUDENTS = [
-  { name: '[Student 1]', batch: '[Class / Year]' },
-  { name: '[Student 2]', batch: '[Class / Year]' },
-  { name: '[Student 3]', batch: '[Class / Year]' },
-  { name: '[Student 4]', batch: '[Class / Year]' },
-  { name: '[Student 5]', batch: '[Class / Year]' },
-  { name: '[Student 6]', batch: '[Class / Year]' },
+  { name: 'Student 1', batch: '[Class / Year]', photo: '/student1.jpg' },
+  { name: 'Student 2', batch: '[Class / Year]', photo: '/student2.jpg' },
+  { name: 'Student 3', batch: '[Class / Year]', photo: '/student3.jpg' },
+  { name: 'Student 4', batch: '[Class / Year]', photo: '/student4.jpg' },
+  { name: 'Student 5', batch: '[Class / Year]', photo: '/student5.jpg' },
+  { name: 'Student 6', batch: '[Class / Year]', photo: '/student6.jpg' },
+  { name: 'Student 7', batch: '[Class / Year]', photo: '/student7.jpg' },
 ];
 const AGENDA = [
   { time: '6.00 p.m.', title: 'Ganadevi Dance', desc: '[Description here]' },
@@ -18,8 +20,16 @@ const AGENDA = [
   { time: '8.15 p.m.', title: 'Traditional Dance Performance', desc: '[Description here]' },
   { time: '9.30 p.m.', title: 'Refreshments / Dana', desc: '[Description here]' },
 ];
-const PHOTOS = new Array(8).fill(null);
-const YOUTUBE_ID = '';
+const PHOTOS = [
+  '/gallery1.jpg',
+  '/gallery2.jpg',
+  '/gallery3.jpg',
+  '/gallery4.jpg',
+  '/gallery5.jpg',
+  '/gallery6.jpg',
+  '/gallery7.jpg',
+];
+const VIDEO_SRC = '/sample.mp4';
 const VENUE_NAME = 'Singhapura Sri Vijayananda Viharaya';
 const MAPS_QUERY = 'Singhapura Sri Vijayananda Viharaya, Sri Lanka';
 const CONTACTS = [
@@ -87,7 +97,9 @@ function StudentsSection() {
       <div className="s-grid">
         {STUDENTS.map((s, i) => (
           <div className="s-card" key={i}>
-            <div className="photo placeholder-photo"><span>Photo</span></div>
+            <div className="photo student-photo">
+              <img src={s.photo} alt={s.name} />
+            </div>
             <h3>{s.name}</h3>
             <div className="batch">{s.batch}</div>
           </div>
@@ -128,14 +140,16 @@ function GallerySection() {
       <Divider />
       <div className="g-grid">
         {PHOTOS.map((src, i) => (
-          <div key={i} className="placeholder-photo" onClick={() => setOpen(i)} role="button" tabIndex={0}>
-            <span>Photo {i + 1}</span>
-          </div>
+          <button key={src} className="gallery-tile" onClick={() => setOpen(i)} type="button">
+            <Image src={src} alt={`Gallery photo ${i + 1}`} width={520} height={520} />
+          </button>
         ))}
       </div>
       {open !== null && (
         <div className="lightbox" onClick={() => setOpen(null)}>
-          <div className="placeholder-photo lightbox-photo"><span>Photo {open + 1} - large view</span></div>
+          <button className="lightbox-photo" onClick={() => setOpen(null)} type="button">
+            <Image src={PHOTOS[open]} alt={`Gallery photo ${open + 1}`} width={900} height={900} />
+          </button>
         </div>
       )}
     </>
@@ -143,20 +157,16 @@ function GallerySection() {
 }
 
 function VideoSection() {
-  const [playing, setPlaying] = useState(false);
   return (
     <>
       <span className="eyebrow">Pre-shoot</span>
       <h2 className="title">Video</h2>
       <Divider />
       <div className="video-frame">
-        {playing && YOUTUBE_ID ? (
-          <iframe src={`https://www.youtube.com/embed/${YOUTUBE_ID}?autoplay=1`} title="Pre-shoot video" allow="autoplay; encrypted-media" allowFullScreen />
-        ) : (
-          <div className="play-btn" onClick={() => setPlaying(true)} role="button" tabIndex={0}>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="#E3C888"><path d="M8 5v14l11-7z" /></svg>
-          </div>
-        )}
+        <video controls preload="metadata" playsInline>
+          <source src={VIDEO_SRC} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
     </>
   );

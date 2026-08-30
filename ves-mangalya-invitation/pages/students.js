@@ -1,31 +1,30 @@
 import Layout from '../components/Layout';
 import Divider from '../components/Divider';
 
-// 👉 Add / remove students here — the grid updates automatically.
 const STUDENTS = [
-  { name: '[ශිෂ්‍ය 1]', batch: '[පංතිය / වර්ෂය]' },
-  { name: '[ශිෂ්‍ය 2]', batch: '[පංතිය / වර්ෂය]' },
-  { name: '[ශිෂ්‍ය 3]', batch: '[පංතිය / වර්ෂය]' },
-  { name: '[ශිෂ්‍ය 4]', batch: '[පංතිය / වර්ෂය]' },
-  { name: '[ශිෂ්‍ය 5]', batch: '[පංතිය / වර්ෂය]' },
-  { name: '[ශිෂ්‍ය 6]', batch: '[පංතිය / වර්ෂය]' },
+  { name: 'Student 1', photo: '/student1.jpg' },
+  { name: 'Student 2', photo: '/student2.jpg' },
+  { name: 'Student 3', photo: '/student3.jpg' },
+  { name: 'Student 4', photo: '/student4.jpg' },
+  { name: 'Student 5', photo: '/student5.jpg' },
+  { name: 'Student 6', photo: '/student6.jpg' },
+  { name: 'Student 7', photo: '/student7.jpg' },
 ];
 
 export default function Students() {
   return (
     <Layout title="ශිෂ්‍ය පරපුර">
-      <span className="eyebrow">මේ වසරේ ගරු කරනු ලබන</span>
+      <span className="eyebrow">මේ වසරේ ගෞරව ලබන</span>
       <h2 className="title">වෙස් පැළඳීමට සුදුසුකම් ලබන ශිෂ්‍ය පරපුර</h2>
       <Divider />
 
       <div className="s-grid">
-        {STUDENTS.map((s, i) => (
-          <div className="s-card" key={i}>
-            <div className="photo placeholder-photo">
-              <span>ඡායාරූපය</span>
+        {STUDENTS.map((student) => (
+          <div className="s-card" key={student.photo}>
+            <div className="photo student-photo">
+              <img src={student.photo} alt={student.name} />
             </div>
-            <h3>{s.name}</h3>
-            <div className="batch">{s.batch}</div>
+            <h3>{student.name}</h3>
           </div>
         ))}
       </div>
