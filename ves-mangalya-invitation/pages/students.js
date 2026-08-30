@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Layout from '../components/Layout';
 import Divider from '../components/Divider';
 
@@ -22,7 +23,7 @@ export default function Students() {
         {STUDENTS.map((student) => (
           <div className="s-card" key={student.photo}>
             <div className="photo student-photo">
-              <img src={student.photo} alt={student.name} />
+              <Image src={student.photo} alt={student.name} width={240} height={240} />
             </div>
             <h3>{student.name}</h3>
           </div>
