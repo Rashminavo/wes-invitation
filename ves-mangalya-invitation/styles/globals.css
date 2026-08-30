@@ -291,15 +291,15 @@ img {
 /* ---------- Students grid ---------- */
 .s-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
   gap: 24px;
 }
 .s-card { text-align: center; }
 .s-card .photo {
-  width: 120px;
-  height: 120px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
-  margin: 0 auto 10px;
+  margin: 0 auto 12px;
 }
 .student-photo {
   overflow: hidden;
