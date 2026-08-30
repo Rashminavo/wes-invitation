@@ -29,7 +29,6 @@ const PHOTOS = [
   '/gallery6.jpg',
   '/gallery7.jpg',
 ];
-const VIDEO_SRC = '/sample.mp4';
 const VENUE_NAME = 'Singhapura Sri Vijayananda Viharaya';
 const MAPS_QUERY = 'Singhapura Sri Vijayananda Viharaya, Sri Lanka';
 const CONTACTS = [
@@ -156,22 +155,6 @@ function GallerySection() {
   );
 }
 
-function VideoSection() {
-  return (
-    <>
-      <span className="eyebrow">Pre-shoot</span>
-      <h2 className="title">Video</h2>
-      <Divider />
-      <div className="video-frame">
-        <video controls preload="metadata" playsInline>
-          <source src={VIDEO_SRC} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-    </>
-  );
-}
-
 function VenueSection() {
   return (
     <>
@@ -224,7 +207,6 @@ export default function OnePageSections() {
     ['students', <StudentsSection key="students" />],
     ['agenda', <AgendaSection key="agenda" />],
     ['gallery', <GallerySection key="gallery" />],
-    ['video', <VideoSection key="video" />],
     ['venue', <VenueSection key="venue" />],
     ['contact', <ContactSection key="contact" />],
   ];

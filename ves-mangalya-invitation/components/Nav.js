@@ -6,7 +6,6 @@ const LINKS = [
   { href: '/#students', label: 'ශිෂ්‍ය පරපුර' },
   { href: '/#agenda', label: 'වේලාසටහන' },
   { href: '/#gallery', label: 'ගැලරිය' },
-  { href: '/#video', label: 'දර්ශනාවලිය' },
   { href: '/#venue', label: 'ස්ථානය' },
   { href: '/#contact', label: 'සම්බන්ධතා' },
 ];

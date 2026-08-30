@@ -416,43 +416,6 @@ img {
   object-fit: contain;
 }
 
-/* ---------- Video ---------- */
-.video-frame {
-  max-width: 700px;
-  margin: 0 auto;
-  aspect-ratio: 16 / 9;
-  position: relative;
-  border: 4px solid var(--gold);
-  border-radius: 4px;
-  overflow: hidden;
-  background: linear-gradient(135deg, #3a2410, #241408);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.video-frame iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-.video-frame video {
-  width: 100%;
-  height: 100%;
-  display: block;
-  background: #000;
-}
-.play-btn {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: rgba(233, 200, 136, 0.15);
-  border: 2px solid var(--gold-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
 /* ---------- Venue ---------- */
 .venue-grid {
   display: grid;
