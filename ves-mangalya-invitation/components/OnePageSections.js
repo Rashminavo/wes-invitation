@@ -98,7 +98,7 @@ function StudentsSection() {
         {STUDENTS.map((s, i) => (
           <div className="s-card" key={i}>
             <div className="photo student-photo">
-              <Image src={s.photo} alt={s.name} width={240} height={240} />
+              <img src={s.photo} alt={s.name} />
             </div>
             <h3>{s.name}</h3>
             <div className="batch">{s.batch}</div>
