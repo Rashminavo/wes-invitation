@@ -43,10 +43,11 @@ export default function Home() {
           background: #000;
           display: flex;
           justify-content: center;
-          min-height: 100vh;
+          height: 100dvh;
           overflow: hidden;
           position: relative;
           transition: opacity 550ms ease;
+          width: 100%;
         }
 
         .invitation-launcher.is-opening {
@@ -63,10 +64,12 @@ export default function Home() {
 
         .invitation-video {
           object-fit: cover;
+          z-index: 0;
         }
 
         .invitation-shade {
           background: rgba(0, 0, 0, 0.3);
+          z-index: 1;
         }
 
         .open-invitation {
@@ -83,7 +86,7 @@ export default function Home() {
           padding: 0 28px;
           position: relative;
           transition: background 200ms ease, transform 200ms ease;
-          z-index: 1;
+          z-index: 2;
         }
 
         .open-invitation:hover {
