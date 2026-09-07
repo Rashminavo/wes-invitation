@@ -4,13 +4,13 @@ import Divider from './Divider';
 
 const EVENT_DATE = '2026-08-01T07:00:00+05:30';
 const STUDENTS = [
-  { name: 'Student 1', batch: '[Class / Year]', photo: '/student1.jpg' },
-  { name: 'Student 2', batch: '[Class / Year]', photo: '/student2.jpg' },
-  { name: 'Student 3', batch: '[Class / Year]', photo: '/student3.jpg' },
-  { name: 'Student 4', batch: '[Class / Year]', photo: '/student4.jpg' },
-  { name: 'Student 5', batch: '[Class / Year]', photo: '/student5.jpg' },
-  { name: 'Student 6', batch: '[Class / Year]', photo: '/student6.jpg' },
-  { name: 'Student 7', batch: '[Class / Year]', photo: '/student7.jpg' },
+  { name: 'දෙව්මිණි ලියනගේ',photo: '/student1.jpg' },
+  { name: 'දිල්හාරා අබේගුණවර්ධන ',photo: '/student2.jpg' },
+  { name: 'තරුෂි කරුණාරත්න',photo: '/student3.jpg' },
+  { name: 'හංසි අබේරත්න',photo: '/student4.jpg' },
+  { name: 'උපේක්ෂිකා තෙන්නකෝන්',photo: '/student5.jpg' },
+  { name: 'අමන්දි ඩයස්',photo: '/student6.jpg' },
+  { name: 'සන්ජය ඉෂාර',photo: '/student7.jpg' },
 ];
 const AGENDA = [
   { time: 'ප.ව.5.30', title: 'හිතමිත්‍රාදීන් විහාරස්ථානය වෙත පැමිණීම'},
