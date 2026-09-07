@@ -34,9 +34,7 @@ const PHOTOS = [
 const VENUE_NAME = 'සිංහපුර ශ්‍රී විජයනන්ද විහාරය';
 const MAPS_QUERY = 'Singhapura Sri Vijayananda Viharaya, Sri Lanka';
 const CONTACTS = [
-  { name: '[Name 1]', role: 'Academy Director', phone: '077 000 0000' },
-  { name: '[Name 2]', role: 'Dance Teacher', phone: '071 000 0000' },
-  { name: '[Name 3]', role: 'Coordinator', phone: '075 000 0000' },
+  { name: '[චන්ද්‍රිකා ගුරුතුමිය]', role: 'නර්තන ගුරුවරයා', phone: '071 103 5781' }
 ];
 
 function getTimeLeft() {
