@@ -8,10 +8,10 @@ const agenda = [
   { time: '11.30 පෙ.ව.', title: 'උත්සවයේ නිමාව', desc: '[ගුරුවරුන් හා ආරාධිතයන්ගේ ආශිර්වාද පිරිනැමීමත් සමඟින් උත්සවය සමාප්ත වේ. සහභාගී වූ සැමට ස්තුතිය පළ කරමින් හා ඉදිරි නර්තන ගමන සඳහා සුබ පැතුම් එක් කරමින් උත්සවය අවසන් කරනු ලැබේ.]' }
 ];
 
-export default function agenda() {
+export default function AgendaPage() {
   return (
-    <Layout title="agenda">
-      <span className="eyebrow">දින සටහන</span>
+    <Layout title="න්‍යාය පත්‍රය">
+      <span className="eyebrow">න්‍යාය පත්‍රය</span>
       <h2 className="title">න්‍යාය පත්‍රය</h2>
       <Divider />
 

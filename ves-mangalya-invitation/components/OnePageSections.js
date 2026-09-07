@@ -113,8 +113,8 @@ function StudentsSection() {
 function AgendaSection() {
   return (
     <>
-      <span className="eyebrow">Day program</span>
-      <h2 className="title"> න්‍යාය පත්‍රය</h2>
+      <span className="eyebrow">න්‍යාය පත්‍රය</span>
+      <h2 className="title">න්‍යාය පත්‍රය</h2>
       <Divider />
       <div className="timeline">
         {AGENDA.map((item, i) => (
