@@ -1,51 +1,104 @@
-import Layout from '../components/Layout';
-import Divider from '../components/Divider';
-import Link from 'next/link';
-import Image from 'next/image';
-import OnePageSections from '../components/OnePageSections';
+import { useEffect, useRef, useState } from 'react';
 
 export default function Home() {
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+
+    if (!isPlaying || !video) {
+      return undefined;
+    }
+
+    const continueToInvitation = () => {
+      window.location.assign('/invitation.html');
+    };
+
+    video.addEventListener('ended', continueToInvitation, { once: true });
+    video.addEventListener('error', continueToInvitation, { once: true });
+    video.play().catch(continueToInvitation);
+
+    return () => {
+      video.removeEventListener('ended', continueToInvitation);
+      video.removeEventListener('error', continueToInvitation);
+    };
+  }, [isPlaying]);
+
   return (
-    <Layout title="මුල් පිටුව">
-      <section id="home" className="scroll-section hero-section">
-        <span className="eyebrow">ආරාධනා පත්‍රය</span>
-        <h1 className="title hero-title">වෙස් තැබීමේ උත්සවය</h1>
+    <main className="invitation-launcher">
+      {!isPlaying && (
+        <button
+          id="විවෘත කරන්න"
+          type="button"
+          onClick={() => setIsPlaying(true)}
+        >
+          Open Invitation
+        </button>
+      )}
 
-        <div className="hero-photo-wrap frame-photo">
-          <Image
-            src="/hero-invitation.png"
-            alt="වෙස් තැබීමේ උත්සව ආරාධනා පත්‍රය"
-            width={900}
-            height={1600}
-            style={{ width: '100%', height: 'auto' }}
-            priority
+      <div
+        id="video-overlay"
+        className={isPlaying ? 'is-visible' : ''}
+        aria-hidden={!isPlaying}
+      >
+        <video id="invitation-video" ref={videoRef} preload="auto" playsInline>
+          <source
+            src="/Dancers_performing_at_traditiona…_202609080053.mp4"
+            type="video/mp4"
           />
-        </div>
+        </video>
+      </div>
 
-        <div className="hero-caption">
-          <p>
-            සහෝදර සහෝදරියන්ට ගෞරවයෙන් ආරාධනා කර සිටිමු,
-            වෙස් තැබීමේ ඓතිහාසික උත්සවයට සහභාගී වී ආශිර්වාද එක් කරන්න.
-          </p>
-          <div className="hero-nekath">
-            නැකත් වේලාව
-            <b>සවස 7.00</b>
-          </div>
-        </div>
+      <style jsx>{`
+        .invitation-launcher {
+          align-items: center;
+          background: #f7f3ed;
+          display: flex;
+          justify-content: center;
+          min-height: 100dvh;
+          padding: 24px;
+        }
 
-        <Divider />
+        #open-invitation {
+          appearance: none;
+          background: #342d28;
+          border: 0;
+          border-radius: 0;
+          box-shadow: 0 8px 20px rgba(52, 45, 40, 0.18);
+          color: #fff;
+          cursor: pointer;
+          font: inherit;
+          font-size: 16px;
+          min-height: 48px;
+          padding: 0 28px;
+        }
 
-        <div className="cta-row">
-          <Link href="/#countdown" className="btn solid">
-            කාල ගණනය බලන්න
-          </Link>
-          <Link href="/#venue" className="btn outline">
-            ස්ථානය බලන්න
-          </Link>
-        </div>
-      </section>
+        #open-invitation:focus-visible {
+          outline: 3px solid #8b6f47;
+          outline-offset: 4px;
+        }
 
-      <OnePageSections />
-    </Layout>
+        #video-overlay {
+          align-items: center;
+          background: #000;
+          display: none;
+          inset: 0;
+          justify-content: center;
+          position: fixed;
+          z-index: 10;
+        }
+
+        #video-overlay.is-visible {
+          display: flex;
+        }
+
+        #invitation-video {
+          height: 100%;
+          object-fit: contain;
+          width: 100%;
+        }
+      `}</style>
+    </main>
   );
 }
