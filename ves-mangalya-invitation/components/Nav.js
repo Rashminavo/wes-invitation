@@ -4,7 +4,7 @@ const LINKS = [
   { href: '/', label: 'මුල් පිටුව' },
   { href: '/#countdown', label: 'කාල ගණනය' },
   { href: '/#students', label: 'ශිෂ්‍ය පරපුර' },
-  { href: '/#agenda', label: 'වේලාසටහන' },
+  { href: '/#agenda', label: ' න්‍යාය පත්‍රය' },
   { href: '/#gallery', label: 'ගැලරිය' },
   { href: '/#venue', label: 'ස්ථානය' },
   { href: '/#contact', label: 'සම්බන්ධතා' },

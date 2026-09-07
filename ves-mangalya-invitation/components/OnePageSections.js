@@ -12,13 +12,15 @@ const STUDENTS = [
   { name: 'Student 6', batch: '[Class / Year]', photo: '/student6.jpg' },
   { name: 'Student 7', batch: '[Class / Year]', photo: '/student7.jpg' },
 ];
-const AGENDA = [
-  { time: '6.00 p.m.', title: 'Ganadevi Dance', desc: '[Description here]' },
-  { time: '6.30 p.m.', title: 'Oil Lamp Lighting', desc: '[Description here]' },
-  { time: '7.00 p.m.', title: 'Ves Ceremony', desc: '[Description here]' },
-  { time: '7.45 p.m.', title: 'Blessing Speeches', desc: '[Description here]' },
-  { time: '8.15 p.m.', title: 'Traditional Dance Performance', desc: '[Description here]' },
-  { time: '9.30 p.m.', title: 'Refreshments / Dana', desc: '[Description here]' },
+const  න්‍යාය පත්‍රය = [
+  { time: 'ප.ව.5.30', title: 'හිතමිත්‍රාදීන් විහාරස්ථානය වෙත පැමිණීම'},
+  { time: 'ප.ව.6.00', title: 'බෝධි පූජා පිංකම'},
+  { time: 'ප.ව.7.00', title: 'ආභරණ පේ කිරීම'},
+  { time: 'පෙ.ව.5.00', title: 'ශීර්ෂ බන්ධනය'},
+  { time: 'පෙ.ව.6.30', title: 'ප්‍රථම රංගාභිෂේකය '},
+  { time: 'පෙ.ව.7.30', title: 'මංගල රංගනය'},
+  { time: 'පෙ.ව.8.30', title: 'ගුරු උපහාර'},
+  { time: 'පෙ.ව.9.00', title: 'දේශීය සංග්‍රහය සහ උදෑසන තේ පැන් සංග්‍රහය'}
 ];
 const PHOTOS = [
   '/gallery1.jpg',
@@ -29,7 +31,7 @@ const PHOTOS = [
   '/gallery6.jpg',
   '/gallery7.jpg',
 ];
-const VENUE_NAME = 'Singhapura Sri Vijayananda Viharaya';
+const VENUE_NAME = 'සිංහපුර ශ්‍රී විජයනන්ද විහාරය';
 const MAPS_QUERY = 'Singhapura Sri Vijayananda Viharaya, Sri Lanka';
 const CONTACTS = [
   { name: '[Name 1]', role: 'Academy Director', phone: '077 000 0000' },
@@ -108,14 +110,14 @@ function StudentsSection() {
   );
 }
 
-function AgendaSection() {
+function  න්‍යාය පත්‍රය Section() {
   return (
     <>
       <span className="eyebrow">Day program</span>
-      <h2 className="title">Event Agenda</h2>
+      <h2 className="title">Event  න්‍යාය පත්‍රය</h2>
       <Divider />
       <div className="timeline">
-        {AGENDA.map((item, i) => (
+        { න්‍යාය පත්‍රය.map((item, i) => (
           <div className="t-item" key={i}>
             <div className="t-icon">{i + 1}</div>
             <div className="t-body">
@@ -205,7 +207,7 @@ export default function OnePageSections() {
   const sections = [
     ['countdown', <CountdownSection key="countdown" />],
     ['students', <StudentsSection key="students" />],
-    ['agenda', <AgendaSection key="agenda" />],
+    [' න්‍යාය පත්‍රය', < න්‍යාය පත්‍රයSection key=" න්‍යාය පත්‍රය" />],
     ['gallery', <GallerySection key="gallery" />],
     ['venue', <VenueSection key="venue" />],
     ['contact', <ContactSection key="contact" />],

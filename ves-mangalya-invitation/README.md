@@ -10,7 +10,7 @@ Next.js වෙබ් අඩවියක් — traditional Sri Lankan (Kandyan) 
 | මුල් පිටුව (Hero + ආරාධනා පත්‍රය) | `pages/index.js` | `/` |
 | කාල ගණනය (Countdown) | `pages/countdown.js` | `/countdown` |
 | ශිෂ්‍ය පරපුර (Student list) | `pages/students.js` | `/students` |
-| වේලාසටහන (Agenda) | `pages/agenda.js` | `/agenda` |
+| වේලාසටහන ( න්‍යාය පත්‍රය) | `pages/ න්‍යාය පත්‍රය.js` | `/ න්‍යාය පත්‍රය` |
 | ගැලරිය (Gallery) | `pages/gallery.js` | `/gallery` |
 | දර්ශනාවලිය (Pre-shoot video) | `pages/video.js` | `/video` |
 | ස්ථානය (Venue / directions) | `pages/venue.js` | `/venue` |
@@ -39,7 +39,7 @@ Open http://localhost:3000
   `calendarUrl` dates if you want "Add to calendar" to be accurate.
 - `pages/students.js` → replace the `STUDENTS` array with real names/batches,
   and swap the `placeholder-photo` divs for real `<Image>` photos once you have them.
-- `pages/agenda.js` → edit the `AGENDA` array (times/titles/descriptions).
+- `pages/ න්‍යාය පත්‍රය.js` → edit the ` න්‍යාය පත්‍රය` array (times/titles/descriptions).
 - `pages/gallery.js` → put real photos in `public/gallery/` and update `PHOTOS`.
 - `pages/video.js` → set `YOUTUBE_ID` to your pre-shoot video's YouTube ID.
 - `pages/venue.js` → set `VENUE_NAME`, address lines, and `MAPS_QUERY`.
@@ -62,4 +62,4 @@ Follow the prompts (first time asks you to log in) — it will give you a live
 URL in under a minute. Run `vercel --prod` to publish to your production URL.
 
 That's it — every page above becomes its own route automatically
-(e.g. `yoursite.vercel.app/agenda`).
+(e.g. `yoursite.vercel.app/ න්‍යාය පත්‍රය`).
