@@ -12,7 +12,7 @@ export default function agenda() {
   return (
     <Layout title="agenda">
       <span className="eyebrow">දින සටහන</span>
-      <h2 className="title">උත්සව  න්‍යාය පත්‍රය</h2>
+      <h2 className="title">න්‍යාය පත්‍රය</h2>
       <Divider />
 
       <div className="timeline">

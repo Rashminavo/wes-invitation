@@ -12,7 +12,7 @@ const STUDENTS = [
   { name: 'Student 6', batch: '[Class / Year]', photo: '/student6.jpg' },
   { name: 'Student 7', batch: '[Class / Year]', photo: '/student7.jpg' },
 ];
-const agenda = [
+const AGENDA = [
   { time: 'ප.ව.5.30', title: 'හිතමිත්‍රාදීන් විහාරස්ථානය වෙත පැමිණීම'},
   { time: 'ප.ව.6.00', title: 'බෝධි පූජා පිංකම'},
   { time: 'ප.ව.7.00', title: 'ආභරණ පේ කිරීම'},
@@ -117,7 +117,7 @@ function AgendaSection() {
       <h2 className="title"> න්‍යාය පත්‍රය</h2>
       <Divider />
       <div className="timeline">
-        {agenda.map((item, i) => (
+        {AGENDA.map((item, i) => (
           <div className="t-item" key={i}>
             <div className="t-icon">{i + 1}</div>
             <div className="t-body">
@@ -207,7 +207,7 @@ export default function OnePageSections() {
   const sections = [
     ['countdown', <CountdownSection key="countdown" />],
     ['students', <StudentsSection key="students" />],
-    ['agenda', <agendaSection key="agenda" />],
+    ['agenda', <AgendaSection key="agenda" />],
     ['gallery', <GallerySection key="gallery" />],
     ['venue', <VenueSection key="venue" />],
     ['contact', <ContactSection key="contact" />],
