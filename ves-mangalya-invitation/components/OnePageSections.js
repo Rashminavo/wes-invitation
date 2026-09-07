@@ -12,7 +12,7 @@ const STUDENTS = [
   { name: 'Student 6', batch: '[Class / Year]', photo: '/student6.jpg' },
   { name: 'Student 7', batch: '[Class / Year]', photo: '/student7.jpg' },
 ];
-const  න්‍යාය පත්‍රය = [
+const agenda = [
   { time: 'ප.ව.5.30', title: 'හිතමිත්‍රාදීන් විහාරස්ථානය වෙත පැමිණීම'},
   { time: 'ප.ව.6.00', title: 'බෝධි පූජා පිංකම'},
   { time: 'ප.ව.7.00', title: 'ආභරණ පේ කිරීම'},
@@ -110,14 +110,14 @@ function StudentsSection() {
   );
 }
 
-function  න්‍යාය පත්‍රය Section() {
+function agenda Section() {
   return (
     <>
       <span className="eyebrow">Day program</span>
-      <h2 className="title">Event  න්‍යාය පත්‍රය</h2>
+      <h2 className="title">Event agenda</h2>
       <Divider />
       <div className="timeline">
-        { න්‍යාය පත්‍රය.map((item, i) => (
+        {agenda.map((item, i) => (
           <div className="t-item" key={i}>
             <div className="t-icon">{i + 1}</div>
             <div className="t-body">
@@ -207,7 +207,7 @@ export default function OnePageSections() {
   const sections = [
     ['countdown', <CountdownSection key="countdown" />],
     ['students', <StudentsSection key="students" />],
-    [' න්‍යාය පත්‍රය', < න්‍යාය පත්‍රයSection key=" න්‍යාය පත්‍රය" />],
+    ['agenda', <agendaSection key="agenda" />],
     ['gallery', <GallerySection key="gallery" />],
     ['venue', <VenueSection key="venue" />],
     ['contact', <ContactSection key="contact" />],
