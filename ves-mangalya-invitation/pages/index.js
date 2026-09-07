@@ -1,102 +1,103 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 export default function Home() {
-  const videoRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const router = useRouter();
+  const [isOpening, setIsOpening] = useState(false);
 
-  useEffect(() => {
-    const video = videoRef.current;
-
-    if (!isPlaying || !video) {
-      return undefined;
-    }
-
-    const continueToInvitation = () => {
-      window.location.assign('/invitation.html');
-    };
-
-    video.addEventListener('ended', continueToInvitation, { once: true });
-    video.addEventListener('error', continueToInvitation, { once: true });
-    video.play().catch(continueToInvitation);
-
-    return () => {
-      video.removeEventListener('ended', continueToInvitation);
-      video.removeEventListener('error', continueToInvitation);
-    };
-  }, [isPlaying]);
+  const openInvitation = () => {
+    setIsOpening(true);
+    window.setTimeout(() => router.push('/invitation'), 550);
+  };
 
   return (
-    <main className="invitation-launcher">
-      {!isPlaying && (
-        <button
-          id="විවෘත කරන්න"
-          type="button"
-          onClick={() => setIsPlaying(true)}
-        >
-          Open Invitation
-        </button>
-      )}
-
-      <div
-        id="video-overlay"
-        className={isPlaying ? 'is-visible' : ''}
-        aria-hidden={!isPlaying}
+    <main className={`invitation-launcher${isOpening ? ' is-opening' : ''}`}>
+      <video
+        className="invitation-video"
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        aria-hidden="true"
       >
-        <video id="invitation-video" ref={videoRef} preload="auto" playsInline>
-          <source
-            src="/Dancers_performing_at_traditiona…_202609080053.mp4"
-            type="video/mp4"
-          />
-        </video>
-      </div>
+        <source
+          src="/Dancers_performing_at_traditiona…_202609080053.mp4"
+          type="video/mp4"
+        />
+      </video>
+
+      <div className="invitation-shade" aria-hidden="true" />
+      <button
+        className="open-invitation"
+        type="button"
+        onClick={openInvitation}
+        disabled={isOpening}
+      >
+        විවෘත කරන්න
+      </button>
 
       <style jsx>{`
         .invitation-launcher {
           align-items: center;
-          background: #f7f3ed;
+          background: #000;
           display: flex;
           justify-content: center;
-          min-height: 100dvh;
-          padding: 24px;
+          min-height: 100vh;
+          overflow: hidden;
+          position: relative;
+          transition: opacity 550ms ease;
         }
 
-        #open-invitation {
+        .invitation-launcher.is-opening {
+          opacity: 0;
+        }
+
+        .invitation-video,
+        .invitation-shade {
+          inset: 0;
+          height: 100%;
+          position: absolute;
+          width: 100%;
+        }
+
+        .invitation-video {
+          object-fit: cover;
+        }
+
+        .invitation-shade {
+          background: rgba(0, 0, 0, 0.3);
+        }
+
+        .open-invitation {
           appearance: none;
-          background: #342d28;
-          border: 0;
-          border-radius: 0;
-          box-shadow: 0 8px 20px rgba(52, 45, 40, 0.18);
-          color: #fff;
+          background: rgba(51, 0, 0, 0.88);
+          border: 1px solid #e3c888;
+          border-radius: 3px;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+          color: #f1e6cf;
           cursor: pointer;
           font: inherit;
           font-size: 16px;
           min-height: 48px;
           padding: 0 28px;
+          position: relative;
+          transition: background 200ms ease, transform 200ms ease;
+          z-index: 1;
         }
 
-        #open-invitation:focus-visible {
-          outline: 3px solid #8b6f47;
+        .open-invitation:hover {
+          background: #5a140c;
+          transform: translateY(-2px);
+        }
+
+        .open-invitation:focus-visible {
+          outline: 3px solid #e3c888;
           outline-offset: 4px;
         }
 
-        #video-overlay {
-          align-items: center;
-          background: #000;
-          display: none;
-          inset: 0;
-          justify-content: center;
-          position: fixed;
-          z-index: 10;
-        }
-
-        #video-overlay.is-visible {
-          display: flex;
-        }
-
-        #invitation-video {
-          height: 100%;
-          object-fit: contain;
-          width: 100%;
+        .open-invitation:disabled {
+          cursor: wait;
         }
       `}</style>
     </main>
